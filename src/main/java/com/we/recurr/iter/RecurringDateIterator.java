@@ -1,17 +1,23 @@
 package com.we.recurr.iter;
 
+import com.we.recurr.domain.RRule;
+import com.we.recurr.parser.RRuleParser;
+
 import java.time.LocalDate;
 import java.util.Iterator;
 
 public class RecurringDateIterator implements Iterator<LocalDate> {
-    private String rrule;
+    private String rruleString;
     private LocalDate startDate;
+    private RRule rrule;
 
     private static int COUNT = 0;
 
-    public RecurringDateIterator(String rrule, LocalDate startDate) {
-        this.rrule = rrule;
+    public RecurringDateIterator(String rruleString, LocalDate startDate) {
+        this.rruleString = rruleString;
         this.startDate = startDate;
+        this.rrule = new RRuleParser(this.rruleString).parse();
+        System.out.println(rrule.toString());
     }
 
     @Override
