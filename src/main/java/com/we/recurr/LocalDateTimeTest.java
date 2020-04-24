@@ -23,7 +23,7 @@ public class LocalDateTimeTest {
 		LocalDateTime nextTuesday = date.with(TemporalAdjusters.nextOrSame(DayOfWeek.TUESDAY));
 		LocalDateTime nextMonday = date.with(TemporalAdjusters.nextOrSame(DayOfWeek.MONDAY));
 
-		try{
+		try {
 			LocalDateTime validDate = date.withDayOfMonth(-3);
 			System.out.println();
 		} catch (DateTimeException e) {
