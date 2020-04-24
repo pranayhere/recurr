@@ -67,6 +67,7 @@ public class RRuleParser implements RuleParser {
                     throw new IllegalArgumentException("Unknown dimension : " + directive);
             }
         }
+        rrule.validate();
         return rrule;
     }
 

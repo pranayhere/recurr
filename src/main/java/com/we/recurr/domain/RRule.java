@@ -1,5 +1,7 @@
 package com.we.recurr.domain;
 
+import sun.plugin.dom.exception.InvalidStateException;
+
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
@@ -13,6 +15,24 @@ public class RRule {
     private List<QualifiedWeekday> byWeekdays;
     private List<Integer> byMonthDays;
     private List<Month> byMonths;
+
+    public void validate() {
+        if (frequency != Frequency.MONTHLY) {
+            for (QualifiedWeekday wd: byWeekdays) {
+                if (wd.getOrdinal() != 0) {
+                    throw new InvalidStateException("BYDAY entries may only specify a numeric component when the frequency is YEARLY or MONTHLY");
+                }
+            }
+        }
+
+        if (frequency == Frequency.WEEKLY && byMonthDays.size() > 0) {
+            throw new InvalidStateException("WEEKLY recurrences must not include BYMONTHDAY");
+        }
+
+        if (count != 0 && until != null) {
+            throw new InvalidStateException("COUNT and UNTIL must not appear in the same RRULE");
+        }
+    }
 
     public Frequency getFrequency() {
         return frequency;
