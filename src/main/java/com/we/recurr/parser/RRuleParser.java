@@ -15,18 +15,21 @@ import java.util.regex.Pattern;
 
 public class RRuleParser implements RuleParser {
     private String ruleText;
+    private LocalDateTime dtStart;
     private static final Pattern ORDINAL_DAY_PATTERN = Pattern.compile("^([-+]?\\d)(\\w{2})$");
 
     public RRuleParser() {}
 
-    public RRuleParser(String ruleText) {
+    public RRuleParser(String ruleText, LocalDateTime dtStart) {
         this.ruleText = ruleText.toUpperCase().replace("RRULE:", "");
+        this.dtStart = dtStart;
     }
 
     @Override
     public RRule parse() {
         RRule rrule = new RRule();
         String[] components = this.ruleText.split(";");
+        rrule.setDtStart(this.dtStart);
 
         for (String component : components) {
             String[] parts = component.split("=");

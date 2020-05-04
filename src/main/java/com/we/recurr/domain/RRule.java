@@ -2,19 +2,28 @@ package com.we.recurr.domain;
 
 import sun.plugin.dom.exception.InvalidStateException;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RRule {
+    private int interval;
+    private int count;
+    private DayOfWeek weekStart;
     private Frequency frequency;
     private LocalDateTime until;
-    private int count;
     private LocalDateTime dtStart;
-    private int interval;
     private List<QualifiedWeekday> byWeekdays;
     private List<Integer> byMonthDays;
     private List<Month> byMonths;
+
+    public RRule() {
+        this.byWeekdays = new ArrayList<>();
+        this.byMonthDays = new ArrayList<>();
+        this.byMonths = new ArrayList<>();
+    }
 
     public void validate() {
         if (frequency != Frequency.MONTHLY) {
@@ -32,6 +41,14 @@ public class RRule {
         if (count != 0 && until != null) {
             throw new InvalidStateException("COUNT and UNTIL must not appear in the same RRULE");
         }
+    }
+
+    public DayOfWeek getWeekStart() {
+        return weekStart;
+    }
+
+    public void setWeekStart(DayOfWeek weekStart) {
+        this.weekStart = weekStart;
     }
 
     public Frequency getFrequency() {
