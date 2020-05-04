@@ -11,14 +11,13 @@ import java.util.List;
 public class WeeklyIteratorStrategy extends IteratorStrategy {
 
     private RRule rrule;
-    private LocalDateTime start;
     private LocalDateTime current;
     int interval = 1;
 
     public WeeklyIteratorStrategy(RRule rrule) {
         this.rrule = rrule;
         this.qCap = rrule.getCount();
-        this.start = rrule.getDtStart();
+        LocalDateTime start = rrule.getDtStart();
         if (start == null) {
             start = LocalDateTime.now();
         }
@@ -43,12 +42,11 @@ public class WeeklyIteratorStrategy extends IteratorStrategy {
     public boolean valid(LocalDateTime localDateTime) {
         return true;
     }
+    
 
     @Override
     public List<LocalDateTime> variations(LocalDateTime t) {
         List<LocalDateTime> tt = new ArrayList<>(Collections.singletonList(t));
-        List<LocalDateTime> variations = new ArrayList<>();
-        variations.addAll(new ByWeekdaysExpandable(tt, rrule.getWeekStart(), rrule.getByWeekdays()).expand());
-        return variations;
+        return new ArrayList<>(new ByWeekdaysExpandable(tt, rrule.getWeekStart(), rrule.getByWeekdays()).expand());
     }
 }

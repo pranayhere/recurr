@@ -53,7 +53,7 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
 
             // remove variations before minTime
             List<LocalDateTime> variations = new ArrayList<>(i.variations(key));
-            if (!variations.isEmpty() && variations.get(0).isBefore(i.minTime)) {
+            while (!variations.isEmpty() && variations.get(0).isBefore(i.minTime)) {
                 variations.remove(0);
             }
 

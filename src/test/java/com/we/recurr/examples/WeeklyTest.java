@@ -29,7 +29,7 @@ public class WeeklyTest {
     }
 
     @Test
-    public void weeklyWithInterval() {
+    public void everyTwoWeeks() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=3", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {
@@ -44,6 +44,20 @@ public class WeeklyTest {
 
     @Test
     public void weeklyWithWeekdays() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;BYDAY=MO,TH;COUNT=3", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+
+        assertEquals(3, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 4, 0, 0, 0, 0), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 5, 7, 0, 0, 0, 0), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 5, 11, 0, 0, 0, 0), days.get(2));
+    }
+
+    @Test
+    public void everyTwoWeeksOnWeekdays() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;BYDAY=MO,TH;INTERVAL=2;COUNT=3", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {
@@ -54,5 +68,20 @@ public class WeeklyTest {
         assertEquals(LocalDateTime.of(2020, 5, 4, 0, 0, 0, 0), days.get(0));
         assertEquals(LocalDateTime.of(2020, 5, 7, 0, 0, 0, 0), days.get(1));
         assertEquals(LocalDateTime.of(2020, 5, 18, 0, 0, 0, 0), days.get(2));
+    }
+
+    @Test
+    public void everyTwoWeeksOnWeekdaysStartAfterLastDay() {
+        LocalDateTime today = LocalDateTime.of(2020, 5, 8, 0, 0, 0);
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;BYDAY=MO,TH;INTERVAL=2;COUNT=3", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+
+        assertEquals(3, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 18, 0, 0, 0, 0), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 5, 21, 0, 0, 0, 0), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 6, 1, 0, 0, 0, 0), days.get(2));
     }
 }
