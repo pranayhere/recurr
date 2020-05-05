@@ -4,6 +4,7 @@ import com.we.recurr.domain.RRule;
 import com.we.recurr.parser.RRuleParser;
 import com.we.recurr.strategies.DailyIteratorStrategy;
 import com.we.recurr.strategies.IteratorStrategy;
+import com.we.recurr.strategies.MonthlyIteratorStrategy;
 import com.we.recurr.strategies.WeeklyIteratorStrategy;
 
 import java.time.LocalDateTime;
@@ -102,6 +103,8 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
                 return new DailyIteratorStrategy(rrule);
             case WEEKLY:
                 return new WeeklyIteratorStrategy(rrule);
+            case MONTHLY:
+                return new MonthlyIteratorStrategy(rrule);
             default:
                 throw new IllegalArgumentException("Strategy doesn't exists for : " + rrule.getFrequency());
         }
