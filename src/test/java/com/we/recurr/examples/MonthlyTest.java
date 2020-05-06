@@ -28,8 +28,6 @@ public class MonthlyTest {
         assertEquals(LocalDateTime.of(2020, 7, 5, 0, 0, 0, 0), days.get(2));
     }
 
-
-
     @Test
     public void monthlyFromStartOfTheMonth() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYMONTHDAY=1,31;COUNT=5", today);
@@ -73,5 +71,45 @@ public class MonthlyTest {
         assertEquals(LocalDateTime.of(2020, 6, 10, 0, 0, 0, 0), days.get(2));
         assertEquals(LocalDateTime.of(2020, 6, 29, 0, 0, 0, 0), days.get(3));
         assertEquals(LocalDateTime.of(2020, 7, 10, 0, 0, 0, 0), days.get(4));
+    }
+
+    @Test
+    public void monthlyOnFriday() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=FR;COUNT=5", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+        System.out.println(days);
+    }
+
+    @Test
+    public void monthlyOnFirstFriday() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=5", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+        System.out.println(days);
+    }
+
+    @Test
+    public void monthlyOnLastFriday() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=5", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+        System.out.println(days);
+    }
+
+    @Test
+    public void monthlyOnFirstMondayAndSecondLastFriday() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=1MO,-2FR;COUNT=10", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+        System.out.println(days);
     }
 }

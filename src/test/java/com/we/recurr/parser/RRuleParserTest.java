@@ -138,6 +138,6 @@ public class RRuleParserTest {
         List<QualifiedWeekday> list = rruleParser.parseQualifiedWeekdays(weekdays);
 
         assertEquals(-2, list.get(0).getOrdinal());
-        assertEquals(DayOfWeek.MONDAY, list.get(0).getDay());
+        assertEquals(DayOfWeek.MONDAY, list.get(0).getWeekday());
     }
 }

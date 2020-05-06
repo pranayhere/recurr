@@ -4,18 +4,18 @@ import java.time.DayOfWeek;
 
 public class QualifiedWeekday {
     private int ordinal;
-    private DayOfWeek day;
+    private DayOfWeek weekday;
 
-    public QualifiedWeekday(int ordinal, DayOfWeek day) {
+    public QualifiedWeekday(int ordinal, DayOfWeek weekday) {
         this.ordinal = ordinal;
-        this.day = day;
+        this.weekday = weekday;
     }
 
     public int getOrdinal() {
         return ordinal;
     }
 
-    public DayOfWeek getDay() {
-        return day;
+    public DayOfWeek getWeekday() {
+        return weekday;
     }
 }

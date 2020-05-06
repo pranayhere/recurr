@@ -30,7 +30,7 @@ public class ByWeekdaysExpandable implements Expandable {
         for (LocalDateTime t: tt) {
             t = backToWeekDay(t, this.weekStart);
             for (QualifiedWeekday weekday: weekdays) {
-                e.add(forwardToWeekday(t, weekday.getDay()));
+                e.add(forwardToWeekday(t, weekday.getWeekday()));
             }
         }
         return e;
