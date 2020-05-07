@@ -43,7 +43,7 @@ public class WeeklyTest {
     }
 
     @Test
-    public void weeklyWithWeekdays() {
+    public void everyWeekOnMOndayAndThursday() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;BYDAY=MO,TH;COUNT=3", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {

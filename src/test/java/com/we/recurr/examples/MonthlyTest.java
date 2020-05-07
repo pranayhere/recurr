@@ -44,7 +44,7 @@ public class MonthlyTest {
     }
 
     @Test
-    public void monthlyFromStartOfTheMonth() {
+    public void everyMonthFromStartOfTheMonth() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYMONTHDAY=1,31;COUNT=5", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {
@@ -166,42 +166,79 @@ public class MonthlyTest {
 
     // Monthly By Weekdays
     @Test
-    public void monthlyOnEveryFriday() {
+    public void everyMonthOnFriday() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=FR;COUNT=5", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {
             days.add(itr.next());
         }
         System.out.println(days);
+        assertEquals(5, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 8, 9, 15, 20), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 5, 15, 9, 15, 20), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 5, 22, 9, 15, 20), days.get(2));
+        assertEquals(LocalDateTime.of(2020, 5, 29, 9, 15, 20), days.get(3));
+        assertEquals(LocalDateTime.of(2020, 6, 5, 9, 15, 20), days.get(4));
     }
 
     @Test
-    public void monthlyOnFirstFriday() {
-        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=5", today);
+    public void everyMonthOnFirstFriday() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=3", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {
             days.add(itr.next());
         }
         System.out.println(days);
+        assertEquals(3, days.size());
+        assertEquals(LocalDateTime.of(2020, 6, 5, 9, 15, 20), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 7, 3, 9, 15, 20), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 8, 7, 9, 15, 20), days.get(2));
     }
 
     @Test
-    public void monthlyOnLastFriday() {
+    public void everyTwoMonthOnFirstThursday() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=1TH;INTERVAL=2;COUNT=3", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+        System.out.println(days);
+        assertEquals(3, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 7, 9, 15, 20), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 7, 2, 9, 15, 20), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 9, 3, 9, 15, 20), days.get(2));
+    }
+
+    @Test
+    public void everyMonthOnLastFriday() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=5", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {
             days.add(itr.next());
         }
+
         System.out.println(days);
+        assertEquals(5, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 29, 9, 15, 20), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 6, 26, 9, 15, 20), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 7, 31, 9, 15, 20), days.get(2));
+        assertEquals(LocalDateTime.of(2020, 8, 28, 9, 15, 20), days.get(3));
+        assertEquals(LocalDateTime.of(2020, 9, 25, 9, 15, 20), days.get(4));
     }
 
     @Test
-    public void monthlyOnFirstMondayAndSecondLastFriday() {
-        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=1MO,-2FR;COUNT=10", today);
+    public void everyMonthOnFirstThursdayAndSecondLastWednesday() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=MONTHLY;BYDAY=1TH,-2WE;COUNT=5", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {
             days.add(itr.next());
         }
         System.out.println(days);
+        assertEquals(5, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 7, 9, 15, 20), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 5, 20, 9, 15, 20), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 6, 4, 9, 15, 20), days.get(2));
+        assertEquals(LocalDateTime.of(2020, 6, 17, 9, 15, 20), days.get(3));
+        assertEquals(LocalDateTime.of(2020, 7, 2, 9, 15, 20), days.get(4));
     }
 }

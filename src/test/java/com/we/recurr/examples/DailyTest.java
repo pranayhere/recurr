@@ -89,7 +89,7 @@ public class DailyTest {
     }
 
     @Test
-    public void dailyOnALeapYear() {
+    public void everyDayOnLeapYear() {
         LocalDateTime today = LocalDateTime.of(2020, 2, 27, 9, 15, 20);
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=DAILY;COUNT=5", today);
         List<LocalDateTime> days = new ArrayList<>();
@@ -106,7 +106,7 @@ public class DailyTest {
     }
 
     @Test
-    public void dailyOnANonLeapYear() {
+    public void everyDayOnNonLeapYear() {
         LocalDateTime today = LocalDateTime.of(2019, 2, 27, 9, 15, 20);
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=DAILY;COUNT=5", today);
         List<LocalDateTime> days = new ArrayList<>();
