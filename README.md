@@ -1,1 +1,1 @@
-Library for RFC 5545 
+Library for Recurring events 
