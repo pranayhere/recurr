@@ -1,4 +1,4 @@
-package com.we.recurr.examples;
+package com.we.recurr.strategies;
 
 import com.we.recurr.iter.RecurrenceIterator;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class WeeklyTest {
+public class WeeklyIteratorStrategyTest {
 
     private final LocalDateTime today = LocalDateTime.of(2020, 5, 4, 0, 0, 0);
 
@@ -43,7 +43,7 @@ public class WeeklyTest {
     }
 
     @Test
-    public void everyWeekOnMOndayAndThursday() {
+    public void everyWeekOnMondayAndThursday() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;BYDAY=MO,TH;COUNT=3", today);
         List<LocalDateTime> days = new ArrayList<>();
         while (itr.hasNext()) {

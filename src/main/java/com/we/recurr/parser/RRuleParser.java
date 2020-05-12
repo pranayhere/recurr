@@ -4,9 +4,12 @@ import com.we.recurr.domain.Frequency;
 import com.we.recurr.domain.QualifiedWeekday;
 import com.we.recurr.domain.RRule;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -17,6 +20,7 @@ public class RRuleParser implements RuleParser {
     private String ruleText;
     private LocalDateTime dtStart;
     private static final Pattern ORDINAL_DAY_PATTERN = Pattern.compile("^([-+]?\\d)(\\w{2})$");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'Hmmss'Z'");
 
     public RRuleParser() {}
 
@@ -46,13 +50,15 @@ public class RRuleParser implements RuleParser {
                     rrule.setFrequency(strToFreq(value.toLowerCase()));
                     break;
                 case "UNTIL":
-                    rrule.setUntil(LocalDateTime.parse(value));
+                    LocalDateTime until = LocalDateTime.parse(value, formatter);
+                    rrule.setUntil(until);
                     break;
                 case "COUNT":
                     rrule.setCount(Integer.parseInt(value));
                     break;
                 case "DTSTART":
-                    rrule.setDtStart(LocalDateTime.parse(value));
+                    LocalDateTime dtStart = LocalDateTime.parse(value, formatter);
+                    rrule.setDtStart(dtStart);
                     break;
                 case "INTERVAL":
                     rrule.setInterval(Integer.parseInt(value));

@@ -28,7 +28,7 @@ public class ByWeekdaysExpandable implements Expandable {
 
         List<LocalDateTime> e = new ArrayList<>();
         for (LocalDateTime t: tt) {
-            t = backToWeekDay(t, this.weekStart);
+            t = backToWeekday(t, this.weekStart);
             for (QualifiedWeekday weekday: weekdays) {
                 e.add(forwardToWeekday(t, weekday.getWeekday()));
             }
@@ -36,11 +36,11 @@ public class ByWeekdaysExpandable implements Expandable {
         return e;
     }
 
-    private LocalDateTime forwardToWeekday(LocalDateTime t, DayOfWeek day) {
+    protected LocalDateTime forwardToWeekday(LocalDateTime t, DayOfWeek day) {
         return t.with(TemporalAdjusters.nextOrSame(day));
     }
 
-    private LocalDateTime backToWeekDay(LocalDateTime t, DayOfWeek weekStart) {
+    protected LocalDateTime backToWeekday(LocalDateTime t, DayOfWeek weekStart) {
         return t.with(TemporalAdjusters.previousOrSame(weekStart));
     }
 }

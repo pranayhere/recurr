@@ -1,4 +1,4 @@
-package com.we.recurr.examples;
+package com.we.recurr.strategies;
 
 import com.we.recurr.iter.RecurrenceIterator;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class DailyTest {
+public class DailyIteratorStrategyTest {
 
     private final LocalDateTime today = LocalDateTime.of(2020, 5, 5, 9, 15, 20);
 
@@ -26,6 +26,21 @@ public class DailyTest {
         assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 20), days.get(0));
         assertEquals(LocalDateTime.of(2020, 5, 6, 9, 15, 20), days.get(1));
         assertEquals(LocalDateTime.of(2020, 5, 7, 9, 15, 20), days.get(2));
+    }
+
+    @Test
+    public void everydayByEndDate() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=DAILY;UNTIL=20200508T183000Z", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+        System.out.println(days);
+        assertEquals(4, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 20), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 5, 6, 9, 15, 20), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 5, 7, 9, 15, 20), days.get(2));
+        assertEquals(LocalDateTime.of(2020, 5, 8, 9, 15, 20), days.get(3));
     }
 
     @Test
@@ -87,6 +102,8 @@ public class DailyTest {
         assertEquals(LocalDateTime.of(2020, 5, 12, 9, 15, 20), days.get(1));
         assertEquals(LocalDateTime.of(2020, 5, 19, 9, 15, 20), days.get(2));
     }
+
+
 
     @Test
     public void everyDayOnLeapYear() {

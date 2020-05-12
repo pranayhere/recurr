@@ -1,4 +1,4 @@
-package com.we.recurr.examples;
+package com.we.recurr.strategies;
 
 import com.we.recurr.iter.RecurrenceIterator;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class MonthlyTest {
+public class MonthlyIteratorStrategyTest {
 
     private final LocalDateTime today = LocalDateTime.of(2020, 5, 5, 9, 15, 20);
 
@@ -67,8 +67,11 @@ public class MonthlyTest {
         }
         assertEquals(5, days.size());
         assertEquals(LocalDateTime.of(2020, 5, 31, 9, 15, 20), days.get(0));
+
+
         assertEquals(LocalDateTime.of(2020, 6, 30, 9, 15, 20), days.get(1));
         assertEquals(LocalDateTime.of(2020, 7, 1, 9, 15, 20), days.get(2));
+
         assertEquals(LocalDateTime.of(2020, 7, 31, 9, 15, 20), days.get(3));
         assertEquals(LocalDateTime.of(2020, 8, 1, 9, 15, 20), days.get(4));
     }

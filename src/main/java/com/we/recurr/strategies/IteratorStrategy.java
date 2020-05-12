@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Queue;
 
 public abstract class IteratorStrategy {
-    public Queue<LocalDateTime> q;
-    public int totalQueued;
-    public int qCap;
-    public LocalDateTime minTime;
-    public LocalDateTime maxTime;
-    public boolean pastMaxTime;
+    protected Queue<LocalDateTime> q;
+    protected int totalQueued;
+    protected int qCap;
+    protected LocalDateTime minTime;
+    protected LocalDateTime maxTime;
+    protected boolean pastMaxTime;
 
     public IteratorStrategy() {
         this.q = new ArrayDeque<>();
@@ -26,5 +26,37 @@ public abstract class IteratorStrategy {
             return until;
         }
         return LocalDateTime.MAX;
+    }
+
+    public Queue<LocalDateTime> getQueue() {
+        return q;
+    }
+
+    public int getTotalQueued() {
+        return totalQueued;
+    }
+
+    public void setTotalQueued(int totalQueued) {
+        this.totalQueued = totalQueued;
+    }
+
+    public int getqCap() {
+        return qCap;
+    }
+
+    public LocalDateTime getMinTime() {
+        return minTime;
+    }
+
+    public LocalDateTime getMaxTime() {
+        return maxTime;
+    }
+
+    public boolean isPastMaxTime() {
+        return pastMaxTime;
+    }
+
+    public void setPastMaxTime(boolean pastMaxTime) {
+        this.pastMaxTime = pastMaxTime;
     }
 }

@@ -33,7 +33,7 @@ public class MonthByWeekdaysExpandable implements Expandable {
         return e;
     }
 
-    private List<LocalDateTime> weekdaysInMonth(LocalDateTime t, List<QualifiedWeekday> weekdays) {
+    protected List<LocalDateTime> weekdaysInMonth(LocalDateTime t, List<QualifiedWeekday> weekdays) {
         LocalDateTime firstDay = t.with(TemporalAdjusters.firstDayOfMonth());
         DayOfWeek firstWeekday = firstDay.getDayOfWeek();
         LocalDateTime lastDay = t.with(TemporalAdjusters.lastDayOfMonth());
@@ -84,7 +84,7 @@ public class MonthByWeekdaysExpandable implements Expandable {
         return out;
     }
 
-    private int daysTill(DayOfWeek from, DayOfWeek to) {
+    protected int daysTill(DayOfWeek from, DayOfWeek to) {
         if (from.getValue() == to.getValue()) {
             return 0;
         }
@@ -95,7 +95,7 @@ public class MonthByWeekdaysExpandable implements Expandable {
         return diff;
     }
 
-    private int countWeekdaysInMonth(DayOfWeek wd, LocalDateTime lastDayOfMonth) {
+    protected int countWeekdaysInMonth(DayOfWeek wd, LocalDateTime lastDayOfMonth) {
         int lastDate = lastDayOfMonth.getDayOfMonth();
         DayOfWeek lastWD = lastDayOfMonth.getDayOfWeek();
 
@@ -106,7 +106,7 @@ public class MonthByWeekdaysExpandable implements Expandable {
         return 4;
     }
 
-    private int daysFrom(DayOfWeek startFrom, DayOfWeek backTo) {
+    protected int daysFrom(DayOfWeek startFrom, DayOfWeek backTo) {
         if (startFrom.getValue() == backTo.getValue()) {
             return 0;
         }

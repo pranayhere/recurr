@@ -1,0 +1,8 @@
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/expansions/ByMonthDaysExpandableTest.java
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/expansions/ByWeekdaysExpandableTest.java
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/parser/RRuleParserTest.java
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/strategies/DailyIteratorStrategyTest.java
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/strategies/MonthlyIteratorStrategyTest.java
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/expansions/MonthByWeekdaysExpandableTest.java
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/strategies/WeeklyIteratorStrategyTest.java
+/Users/pranay/my_svc/recurr/src/test/java/com/we/recurr/domain/RRuleTest.java

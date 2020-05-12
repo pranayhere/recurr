@@ -14,11 +14,11 @@ import java.util.List;
 
 public class RecurrenceIterator implements Iterator<LocalDateTime> {
     private RRule rrule;
-    private IteratorStrategy i;
+    private IteratorStrategy iteratorStrategy;
 
     public RecurrenceIterator(String rRuleString, LocalDateTime startDate) {
         this.rrule = new RRuleParser(rRuleString, startDate).parse();
-        this.i = this.iterator();
+        this.iteratorStrategy = this.iteratorStrategy();
     }
 
     @Override
@@ -27,19 +27,20 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
     }
 
     public LocalDateTime peek() {
-        if (!i.q.isEmpty()) {
-            return i.q.peek();
+        IteratorStrategy i = this.getIteratorStrategy();
+        if (!i.getQueue().isEmpty()) {
+            return i.getQueue().peek();
         }
 
-        if (i.qCap > 0) {
-            if (i.totalQueued > i.qCap) {
+        if (i.getqCap() > 0) {
+            if (i.getTotalQueued() > i.getqCap()) {
                 return null;
             }
         }
 
         // start logic here
         for (;;) {
-            if (i.pastMaxTime) {
+            if (i.isPastMaxTime()) {
                 return null;
             }
 
@@ -54,17 +55,17 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
 
             // remove variations before minTime
             List<LocalDateTime> variations = new ArrayList<>(i.variations(key));
-            while (!variations.isEmpty() && variations.get(0).isBefore(i.minTime)) {
+            while (!variations.isEmpty() && variations.get(0).isBefore(i.getMinTime())) {
                 variations.remove(0);
             }
 
             // remove variations after maxTime
-            if (i.maxTime != null) {
+            if (i.getMaxTime() != null) {
                 for (int k = 0; k<variations.size();) {
                     LocalDateTime v = variations.get(k);
-                    if (v.isAfter(i.maxTime)) {
+                    if (v.isAfter(i.getMaxTime())) {
                         variations.remove(k);
-                        i.pastMaxTime = true;
+                        i.setPastMaxTime(true);
                         break;
                     }
                     k++;
@@ -76,28 +77,29 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
             }
 
             // create sublist if variations are more than the queue cap
-            if (i.qCap > 0) {
-                if (i.totalQueued + variations.size() > i.qCap) {
-                    variations = variations.subList(0, i.qCap - i.totalQueued);
+            if (i.getqCap() > 0) {
+                if (i.getTotalQueued() + variations.size() > i.getqCap()) {
+                    variations = variations.subList(0, i.getqCap() - i.getTotalQueued());
                 }
             }
 
-            i.totalQueued += variations.size();
-            i.q.addAll(variations);
+            i.setTotalQueued(i.getTotalQueued() + variations.size());
+            i.getQueue().addAll(variations);
             return !variations.isEmpty() ? variations.get(0) : null;
         }
     }
 
     @Override
     public LocalDateTime next() {
+        IteratorStrategy i = this.getIteratorStrategy();
         LocalDateTime time = this.peek();
-        if (!i.q.isEmpty()) {
-            i.q.poll();
+        if (!i.getQueue().isEmpty()) {
+            i.getQueue().poll();
         }
         return time;
     }
 
-    private IteratorStrategy iterator() {
+    private IteratorStrategy iteratorStrategy() {
         switch (rrule.getFrequency()) {
             case DAILY:
                 return new DailyIteratorStrategy(rrule);
@@ -109,4 +111,13 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
                 throw new IllegalArgumentException("Strategy doesn't exists for : " + rrule.getFrequency());
         }
     }
+
+    public RRule getRRule() {
+        return rrule;
+    }
+
+    public IteratorStrategy getIteratorStrategy() {
+        return iteratorStrategy;
+    }
+
 }
