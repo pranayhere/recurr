@@ -31,15 +31,15 @@ while (itr.hasNext()) {
 | RRule | Description |
 |--|--|
 | RRULE:FREQ=DAILY;COUNT=3 | Repeat Every day |
-|RRULE:FREQ=DAILY;INTERVAL=2 | Repeat Every Two days |
-|RRULE:FREQ=WEEKLY; | Repeat Every Week |
-|RRULE:FREQ=WEEKLY;INTERVAL=2 | Repeat Every Two Weeks |
-|RRULE:FREQ=WEEKLY;BYDAY=MO,TH | Repeat On Monday And Thursday | 
-|RRULE:FREQ=WEEKLY;BYDAY=SA,SU | Repeat on Every Weekend |
-| RRULE:FREQ=MONTHLY;BYMONTHDAY=10 | Repeat Every 10th of the Month |
-|RRULE:FREQ=MONTHLY;BYMONTHDAY=-1,-31 | Repeat on Last day of the month |
-| RRULE:FREQ=MONTHLY;BYDAY=1FR | Repeat on first friday |
-| RRULE:FREQ=MONTHLY;BYDAY=-1FR | Repeat on Last Friday |
+|RRULE:FREQ=DAILY;INTERVAL=2;COUNT=3 | Repeat Every Two days |
+|RRULE:FREQ=WEEKLY;COUNT=3 | Repeat Every Week |
+|RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=3 | Repeat Every Two Weeks |
+|RRULE:FREQ=WEEKLY;BYDAY=MO,TH;COUNT=3 | Repeat On Monday And Thursday | 
+|RRULE:FREQ=WEEKLY;BYDAY=SA,SU;COUNT=3 | Repeat on Every Weekend |
+| RRULE:FREQ=MONTHLY;BYMONTHDAY=10;COUNT=3 | Repeat Every 10th of the Month |
+|RRULE:FREQ=MONTHLY;BYMONTHDAY=-1,-31;COUNT=3 | Repeat on Last day of the month |
+| RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=3 | Repeat on first friday |
+| RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=3 | Repeat on Last Friday |
 
 # Contribution
 Please feel free to contribute.
