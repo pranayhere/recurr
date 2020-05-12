@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="com.we.recurr.strategies.MonthlyIteratorStrategyTest" time="0.01" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="com.we.recurr.strategies.MonthlyIteratorStrategyTest" time="0.017" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean deploy"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -65,19 +65,19 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOnNonLeapYear" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthFromEndOfTheMonth" time="0.001"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOn1stAnd15thOfTheMonth" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyTwoMonthOnFirstThursday" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnFriday" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyTwoMonthOnFirstDay" time="0.002"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOnNonLeapYear" time="0.002"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthFromEndOfTheMonth" time="0"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOn1stAnd15thOfTheMonth" time="0.001"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyTwoMonthOnFirstThursday" time="0.002"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnFriday" time="0.001"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyTwoMonthOnFirstDay" time="0.001"/>
   <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastFriday" time="0.001"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOnLeapYear" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnFirstThursdayAndSecondLastWednesday" time="0.006"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOnLeapYear" time="0.001"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnFirstThursdayAndSecondLastWednesday" time="0"/>
   <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthFromStartOfTheMonth" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnFirstFriday" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonth" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOfTheMonth" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOnEndOfYear" time="0"/>
-  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthDatesMixed" time="0"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnFirstFriday" time="0.001"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonth" time="0.001"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOfTheMonth" time="0.003"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthOnLastDayOnEndOfYear" time="0.001"/>
+  <testcase classname="com.we.recurr.strategies.MonthlyIteratorStrategyTest" name="everyMonthDatesMixed" time="0.002"/>
 </testsuite>
