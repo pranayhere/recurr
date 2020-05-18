@@ -1,4 +1,6 @@
 # Recurr
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr?ref=badge_shield)
+
 
 Recurr is the library for generating recurring events. It follows RFC-5545 to generate recurring events. The project is still in active development. 
 
@@ -43,3 +45,6 @@ while (itr.hasNext()) {
 
 # Contribution
 Please feel free to contribute.
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr?ref=badge_large)
