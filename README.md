@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.pranayhere/recurr/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.pranayhere/recurr)
+
 # Recurr
 
 Recurr is the library for generating recurring events. It follows RFC-5545 to generate recurring events. The project is still in active development. 
@@ -12,7 +14,7 @@ Current implementation supports recurring events of type
 <dependecy>
 	<groupId>com.github.pranayhere</groupId>  
 	<artifactId>recurr</artifactId>
-	<version>0.1.2-SNAPSHOT</version>
+	<version>1.1.0</version>
 </dependency>
 ```
 
