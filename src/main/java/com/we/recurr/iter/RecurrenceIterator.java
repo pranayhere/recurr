@@ -5,6 +5,7 @@ import com.we.recurr.parser.RRuleParser;
 import com.we.recurr.strategies.DailyIteratorStrategy;
 import com.we.recurr.strategies.IteratorStrategy;
 import com.we.recurr.strategies.MonthlyIteratorStrategy;
+import com.we.recurr.strategies.SecondlyIteratorStrategy;
 import com.we.recurr.strategies.WeeklyIteratorStrategy;
 
 import java.time.LocalDateTime;
@@ -101,6 +102,8 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
 
     private IteratorStrategy iteratorStrategy() {
         switch (rrule.getFrequency()) {
+            case SECONDLY:
+                return new SecondlyIteratorStrategy(rrule);
             case DAILY:
                 return new DailyIteratorStrategy(rrule);
             case WEEKLY:
