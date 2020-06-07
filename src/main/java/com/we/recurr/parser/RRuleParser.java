@@ -152,6 +152,8 @@ public class RRuleParser implements RuleParser {
 
     public Frequency strToFreq(String freq) {
         switch (freq) {
+            case "secondly":
+                return Frequency.SECONDLY;
             case "daily":
                 return Frequency.DAILY;
             case "weekly":
@@ -159,7 +161,7 @@ public class RRuleParser implements RuleParser {
             case "monthly":
                 return Frequency.MONTHLY;
             default:
-                throw new NoSuchElementException("Incorrect String for frequency" + freq);
+                throw new NoSuchElementException("Incorrect String for frequency " + freq);
         }
     }
 }
