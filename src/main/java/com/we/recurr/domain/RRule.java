@@ -16,11 +16,13 @@ public class RRule {
     private List<QualifiedWeekday> byWeekdays;
     private List<Integer> byMonthDays;
     private List<Month> byMonths;
+    private List<Integer> byMinutes;
 
     public RRule() {
         this.byWeekdays = new ArrayList<>();
         this.byMonthDays = new ArrayList<>();
         this.byMonths = new ArrayList<>();
+        this.byMinutes = new ArrayList<>();
     }
 
     public void validate() {
@@ -113,6 +115,14 @@ public class RRule {
         this.byMonths = byMonths;
     }
 
+    public List<Integer> getByMinutes() {
+        return byMinutes;
+    }
+
+    public void setByMinutes(List<Integer> byMinutes) {
+        this.byMinutes = byMinutes;
+    }
+
     @Override
     public String toString() {
         return "RRule{" +
@@ -124,6 +134,7 @@ public class RRule {
                 ", byWeekdays=" + byWeekdays +
                 ", byMonthDays=" + byMonthDays +
                 ", byMonths=" + byMonths +
+                ", byMinutes=" + byMinutes +
                 '}';
     }
 }

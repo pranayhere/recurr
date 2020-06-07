@@ -29,6 +29,21 @@ public class DailyIteratorStrategyTest {
     }
 
     @Test
+    public void everyDayByDtStartAndUntil() {
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=DAILY;DTSTART=20200505T91520Z;UNTIL=20200508T183000Z", null);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+        System.out.println(days);
+        assertEquals(4, days.size());
+        assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 20), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 5, 6, 9, 15, 20), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 5, 7, 9, 15, 20), days.get(2));
+        assertEquals(LocalDateTime.of(2020, 5, 8, 9, 15, 20), days.get(3));
+    }
+
+    @Test
     public void everydayByEndDate() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=DAILY;UNTIL=20200508T183000Z", today);
         List<LocalDateTime> days = new ArrayList<>();

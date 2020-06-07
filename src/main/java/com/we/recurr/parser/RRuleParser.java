@@ -4,8 +4,6 @@ import com.we.recurr.domain.Frequency;
 import com.we.recurr.domain.QualifiedWeekday;
 import com.we.recurr.domain.RRule;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -68,6 +66,9 @@ public class RRuleParser implements RuleParser {
                     break;
                 case "BYMONTHDAY":
                     rrule.setByMonthDays(parseInt(value, -31, 31, false));
+                    break;
+                case "BYMINUTE":
+                    rrule.setByMinutes(parseInt(value, -60, 60, false));
                     break;
                 case "BYMONTH":
                     rrule.setByMonths(parseMonths(value));
@@ -152,6 +153,8 @@ public class RRuleParser implements RuleParser {
 
     public Frequency strToFreq(String freq) {
         switch (freq) {
+            case "minutely":
+                return Frequency.MINUTELY;
             case "daily":
                 return Frequency.DAILY;
             case "weekly":
