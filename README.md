@@ -9,7 +9,7 @@ Current implementation supports recurring events of type
   - Weekly
   - Monthly
 
-# Usage
+## Usage
 ```
 <dependecy>
 	<groupId>com.github.pranayhere</groupId>  
@@ -18,7 +18,7 @@ Current implementation supports recurring events of type
 </dependency>
 ```
 
-# Guide
+## Guide
 
 The library extends Iterator and make use of `hasNext()` and `next()` to get the date for the upcoming events.
 ```
@@ -43,8 +43,8 @@ while (itr.hasNext()) {
 | RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=3 | Repeat on first friday |
 | RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=3 | Repeat on Last Friday |
 
-# License
+## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr?ref=badge_large)
 
-# Contribution
+## Contribution
 Please feel free to contribute.
