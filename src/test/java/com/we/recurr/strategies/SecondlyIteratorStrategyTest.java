@@ -40,4 +40,19 @@ public class SecondlyIteratorStrategyTest {
         assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 25), days.get(1));
         assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 30), days.get(2));
     }
+
+//    @Test
+//    public void exampleTest() {
+//        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=SECONDLY;INTERVAL=30;DTSTART=20200606T091520Z;UNTIL=20200609T183000Z", today);
+//        List<LocalDateTime> days = new ArrayList<>();
+//        while (itr.hasNext()) {
+//            days.add(itr.next());
+//        }
+//
+//        System.out.println(days);
+//        assertEquals(3, days.size());
+//        assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 20), days.get(0));
+//        assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 25), days.get(1));
+//        assertEquals(LocalDateTime.of(2020, 5, 5, 9, 15, 30), days.get(2));
+//    }
 }

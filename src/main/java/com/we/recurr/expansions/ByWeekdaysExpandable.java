@@ -6,6 +6,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ByWeekdaysExpandable implements Expandable {
@@ -33,6 +34,7 @@ public class ByWeekdaysExpandable implements Expandable {
                 e.add(forwardToWeekday(t, weekday.getWeekday()));
             }
         }
+        Collections.sort(e);
         return e;
     }
 

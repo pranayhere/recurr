@@ -4,8 +4,6 @@ import com.we.recurr.domain.Frequency;
 import com.we.recurr.domain.QualifiedWeekday;
 import com.we.recurr.domain.RRule;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -20,13 +18,13 @@ public class RRuleParser implements RuleParser {
     private String ruleText;
     private LocalDateTime dtStart;
     private static final Pattern ORDINAL_DAY_PATTERN = Pattern.compile("^([-+]?\\d)(\\w{2})$");
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'Hmmss'Z'");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'");
 
     public RRuleParser() {}
 
     public RRuleParser(String ruleText, LocalDateTime dtStart) {
         this.ruleText = ruleText.toUpperCase().replace("RRULE:", "");
-        this.dtStart = dtStart;
+        this.dtStart = dtStart; 
     }
 
     @Override

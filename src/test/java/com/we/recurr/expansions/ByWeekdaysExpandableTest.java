@@ -1,7 +1,6 @@
 package com.we.recurr.expansions;
 
 import com.we.recurr.domain.QualifiedWeekday;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.time.DayOfWeek;
