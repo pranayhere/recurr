@@ -1,3 +1,4 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.pranayhere/recurr/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.pranayhere/recurr) [![javadoc](https://javadoc.io/badge2/com.github.pranayhere/recurr/javadoc.svg)](https://javadoc.io/doc/com.github.pranayhere/recurr)
 # Recurr
 
 Recurr is the library for generating recurring events. It follows RFC-5545 to generate recurring events. The project is still in active development. 
@@ -7,16 +8,16 @@ Current implementation supports recurring events of type
   - Weekly
   - Monthly
 
-# Usage
+## Usage
 ```
 <dependecy>
 	<groupId>com.github.pranayhere</groupId>  
 	<artifactId>recurr</artifactId>
-	<version>0.1.2-SNAPSHOT</version>
+	<version>1.1.0</version>
 </dependency>
 ```
 
-# Guide
+## Guide
 
 The library extends Iterator and make use of `hasNext()` and `next()` to get the date for the upcoming events.
 ```
@@ -41,8 +42,8 @@ while (itr.hasNext()) {
 | RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=3 | Repeat on first friday |
 | RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=3 | Repeat on Last Friday |
 
-# License
+## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr?ref=badge_large)
 
-# Contribution
+## Contribution
 Please feel free to contribute.
