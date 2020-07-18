@@ -42,20 +42,20 @@ while (itr.hasNext()) {
 | RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=3 | Repeat on first friday |
 | RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=3 | Repeat on Last Friday |
 
-##License
+## License
 By contributing, you agree that your contributions will be licensed under its MIT License.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr?ref=badge_large)
 
-##Contributing
+## Contributing
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
-Reporting a bug
+## Reporting a bug
 Discussing the current state of the code
 Submitting a fix
 Proposing new features
 
-##We Develop with Github
+## We Develop with Github
 We use github to host code, to track issues and feature requests, as well as accept pull requests.
 
 
