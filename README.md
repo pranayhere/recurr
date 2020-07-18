@@ -1,7 +1,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.pranayhere/recurr/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.pranayhere/recurr) [![javadoc](https://javadoc.io/badge2/com.github.pranayhere/recurr/javadoc.svg)](https://javadoc.io/doc/com.github.pranayhere/recurr)
 # Recurr
 
-Recurr is the library for generating recurring events. It follows RFC-5545 to generate recurring events. The project is still in active development. 
+A simple and fast library to work with Recurring Events.
 
 Current implementation supports recurring events of type
   - Daily
@@ -13,7 +13,7 @@ Current implementation supports recurring events of type
 <dependecy>
 	<groupId>com.github.pranayhere</groupId>  
 	<artifactId>recurr</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.5</version>
 </dependency>
 ```
 
@@ -42,8 +42,20 @@ while (itr.hasNext()) {
 | RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=3 | Repeat on first friday |
 | RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=3 | Repeat on Last Friday |
 
-## License
+##License
+By contributing, you agree that your contributions will be licensed under its MIT License.
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr?ref=badge_large)
 
-## Contribution
-Please feel free to contribute.
+##Contributing
+We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+
+Reporting a bug
+Discussing the current state of the code
+Submitting a fix
+Proposing new features
+
+##We Develop with Github
+We use github to host code, to track issues and feature requests, as well as accept pull requests.
+
+
