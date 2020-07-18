@@ -67,7 +67,7 @@ public class RecurrenceIterator implements Iterator<LocalDateTime> {
                     if (v.isAfter(i.getMaxTime())) {
                         variations.remove(k);
                         i.setPastMaxTime(true);
-                        break;
+                        continue;
                     }
                     k++;
                 }

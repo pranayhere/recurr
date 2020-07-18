@@ -29,6 +29,23 @@ public class WeeklyIteratorStrategyTest {
     }
 
     @Test
+    public void everyWeekUntil() {
+        LocalDateTime today = LocalDateTime.of(2020, 7, 18, 17, 55, 00);
+        Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,SA,SU;UNTIL=20200721T165000Z;", today);
+        List<LocalDateTime> days = new ArrayList<>();
+        while (itr.hasNext()) {
+            days.add(itr.next());
+        }
+
+        System.out.println(days);
+        assertEquals(3, days.size());
+        assertEquals(LocalDateTime.of(2020, 7, 18, 17, 55, 0, 0), days.get(0));
+        assertEquals(LocalDateTime.of(2020, 7, 19, 17, 55, 0, 0), days.get(1));
+        assertEquals(LocalDateTime.of(2020, 7, 20, 17, 55, 0, 0), days.get(2));
+    }
+
+
+    @Test
     public void everyTwoWeeks() {
         Iterator<LocalDateTime> itr = new RecurrenceIterator("RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=3", today);
         List<LocalDateTime> days = new ArrayList<>();
