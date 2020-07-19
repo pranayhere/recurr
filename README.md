@@ -48,13 +48,14 @@ By contributing, you agree that your contributions will be licensed under its MI
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpranayhere%2Frecurr?ref=badge_large)
 
 ## Contributing
-We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
-* Reporting a bug
-* Discussing the current state of the code
-* Submitting a fix
-* Proposing new features
+We love your input! We want to make contributing to this project as easy and transparent as possible.
+Any contributions you make are greatly appreciated.
+
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
 
 ## We Develop with Github
 We use github to host code, to track issues and feature requests, as well as accept pull requests.
-
-
