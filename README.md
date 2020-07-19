@@ -51,11 +51,11 @@ By contributing, you agree that your contributions will be licensed under its MI
 We love your input! We want to make contributing to this project as easy and transparent as possible.
 Any contributions you make are greatly appreciated.
 
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
+* Fork the Project
+* Create your Feature Branch (git checkout -b feature/AmazingFeature)
+* Commit your Changes (git commit -m 'Add some AmazingFeature')
+* Push to the Branch (git push origin feature/AmazingFeature)
+* Open a Pull Request
 
 ## We Develop with Github
 We use github to host code, to track issues and feature requests, as well as accept pull requests.
