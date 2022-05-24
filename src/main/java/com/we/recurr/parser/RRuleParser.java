@@ -158,6 +158,8 @@ public class RRuleParser implements RuleParser {
                 return Frequency.WEEKLY;
             case "monthly":
                 return Frequency.MONTHLY;
+            case "hourly":
+                return Frequency.HOURLY;
             default:
                 throw new NoSuchElementException("Incorrect String for frequency " + freq);
         }
