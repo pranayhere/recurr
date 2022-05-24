@@ -7,6 +7,7 @@ Current implementation supports recurring events of type
   - Daily
   - Weekly
   - Monthly
+  - Hourly
 
 ## Usage
 ```
@@ -41,6 +42,7 @@ while (itr.hasNext()) {
 |RRULE:FREQ=MONTHLY;BYMONTHDAY=-1,-31;COUNT=3 | Repeat on Last day of the month |
 | RRULE:FREQ=MONTHLY;BYDAY=1FR;COUNT=3 | Repeat on first friday |
 | RRULE:FREQ=MONTHLY;BYDAY=-1FR;COUNT=3 | Repeat on Last Friday |
+| RRULE:FREQ=HOURLY;INTERVAL=6;COUNT=3 | Repeat Every six hours |
 
 ## License
 By contributing, you agree that your contributions will be licensed under its MIT License.
